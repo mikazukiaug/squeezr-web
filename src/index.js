@@ -42,9 +42,13 @@ async function readFile () {
   } else { // 回落
     const blobs = await Promise.all(dirContent.filter(x =>
       x.webkitRelativePath.match(/content0001[0-9]{4}\/content\.json$/g)
-    ).map(x => x.text()))
+    ).sort(function (a, b) {
+      return (a.webkitRelativePath > b.webkitRelativePath)
+        ? 1 : ((b.webkitRelativePath > a.webkitRelativePath)
+          ? -1 : 0)
+    }).map(x => x.text()))
 
-    render(parse(blobs.map(format)))
+    render(parse(blobs.map(x => format(x))))
   }
 }
 
