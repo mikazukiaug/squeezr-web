@@ -9,24 +9,12 @@
   <body>
     <header class="navbar p-2 p-sticky bg-secondary" style="top: 0;">
       <section class="navbar-section">
-        <span class="navbar-brand mr-2 container">squeezr <span class="label label-primary">demo</span></span>
-        <div class="popover popover-bottom mx-1" data-html2canvas-ignore>
-          <button class="btn btn-link"><i class="icon icon-link"></i> 输入取件码</button>
-          <div class="popover-container">
-            <div class="card">
-              <div class="card-header bg-primary">
-                <h4 class="text-bold">用取件码获取试题</h4>
-              </div>
-              <div class="card-body">
-                <div class="input-group">
-                  <input type="text" class="form-input" placeholder="取件码" id="code">
-                  <button id="codefetch" class="btn btn-primary btn-action input-group-btn">
-                    <i class="icon icon-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <span class="navbar-brand mx-2">squeezr <span class="label label-primary">demo</span></span>
+        <div class="input-group" data-html2canvas-ignore>
+          <input type="text" class="form-input" placeholder="取件码" id="code">
+          <button id="codefetch" class="btn btn-primary btn-action input-group-btn">
+            <i class="icon icon-arrow-right"></i>
+          </button>
         </div>
       </section>
       <section class="navbar-section" data-html2canvas-ignore>
@@ -45,7 +33,7 @@
               </div>
             </li>
             <!-- menu header text -->
-            <li class="divider" data-content="LINKS">
+            <li class="divider" data-content="SOURCE">
             </li>
             <!-- menu item standard -->
             <li class="menu-item">
@@ -54,6 +42,12 @@
               </a>
               <a href="https://github.com/mikazukiaug/squeezr-web/">
                 <i class="icon icon-apps"></i> UI
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li class="menu-item">
+              <a href="https://github.com/mikazukiaug/squeezr-web/wiki">
+                <i class="icon icon-link"></i> 手册
               </a>
             </li>
             <li class="divider"></li>
