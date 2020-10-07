@@ -1,5 +1,7 @@
+const murmurhash = require('murmurhash')
+
 module.exports.upload = async function (parsed) {
-  const slug = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 7)
+  const slug = murmurhash.v3(JSON.stringify(parsed), 'squeezr').toString(36)
   fetch('https://del.dog/documents?frontend=true', {
     headers: {
       accept: 'application/json; q=0.01',
