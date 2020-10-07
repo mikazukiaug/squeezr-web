@@ -1,5 +1,6 @@
 import { directoryOpen } from 'browser-nativefs'
 import 'spectre.css'
+import 'spectre.css/dist/spectre-icons'
 const parse = require('squeezr-core')
 const format = require('squeezr-core/src/utils/format')
 const marked = require('marked')
