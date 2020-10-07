@@ -8,16 +8,31 @@ const html2canvas = require('html2canvas')
 const downloadjs = require('downloadjs')
 const deldog = require('./deldog')
 const parsehash = require('./parsehash')
+const QRCode = require('qrcode')
+
+const openfile = document.getElementById('openfile')
+const download = document.getElementById('download')
+const codefetch = document.getElementById('codefetch')
+const code = document.getElementById('code')
+const refresh = document.getElementById('refresh')
+
+var lastParsed
 
 // 渲染为 Markdown
 function render (parsed, elem = document.getElementById('app')) {
+  lastParsed = parsed
+  refresh.classList.remove('disabled')
   deldog.upload(parsed)
   const md = parsed
     .map((problem) => {
       return problem.content
         .map((question) => {
-          const answer = question.answer.map((x) => `- ${x}`).join('\n')
-          return `## ${question.ask}\n${answer}`
+          function getRandomInt (max) {
+            return Math.floor(Math.random() * Math.floor(max))
+          }
+          // const answer = question.answer.map((x) => `- ${x}`).join('\n')
+          const answer = question.answer[getRandomInt(question.answer.length - 1)]
+          return `## ${question.ask}\n> ${answer}`
         })
         .join('\n\n')
     })
@@ -52,11 +67,6 @@ async function readFile () {
   }
 }
 
-const openfile = document.getElementById('openfile')
-const download = document.getElementById('download')
-const codefetch = document.getElementById('codefetch')
-const code = document.getElementById('code')
-
 openfile.addEventListener('click', async () => {
   openfile.classList.add('loading')
   await readFile()
@@ -66,7 +76,7 @@ openfile.addEventListener('click', async () => {
 
 download.addEventListener('click', async () => {
   download.classList.add('loading')
-  const canvas = await html2canvas(document.body)
+  const canvas = await html2canvas(document.body, { scrollY: 0 })
   const data = canvas.toDataURL('image/jpeg')
   downloadjs(data, 'squeezr.jpg', 'image/jpeg')
   download.classList.remove('loading')
@@ -94,3 +104,11 @@ codefetch.addEventListener('click', async () => {
   codefetch.classList.remove('loading')
   download.classList.remove('disabled')
 })
+
+const qr = document.getElementById('qrcode')
+
+QRCode.toCanvas(qr, window.location.toString(), { margin: 0, color: { light: '#ffffff00' } })
+
+window.addEventListener('hashchange', () => QRCode.toCanvas(qr, window.location.toString(), { margin: 0, color: { light: '#ffffff00' } }))
+
+refresh.addEventListener('click', () => render(lastParsed))
