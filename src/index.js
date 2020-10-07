@@ -50,6 +50,8 @@ async function readFile () {
 
 const openfile = document.getElementById('openfile')
 const download = document.getElementById('download')
+const codefetch = document.getElementById('codefetch')
+const code = document.getElementById('code')
 
 openfile.addEventListener('click', async () => {
   openfile.classList.add('loading')
@@ -74,3 +76,17 @@ if (parsehash(window.location.hash)?.remote) {
     }
   })
 }
+
+codefetch.addEventListener('click', async () => {
+  codefetch.classList.add('loading')
+  await deldog.fetch(code.value).then(data => {
+    if (data) {
+      render(data)
+      download.classList.remove('disabled')
+    } else {
+      alert('在与远端伺服器联络时发生错误。（取件码有误或版本未更新？）')
+    }
+  })
+  codefetch.classList.remove('loading')
+  download.classList.remove('disabled')
+})
