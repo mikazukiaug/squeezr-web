@@ -14,6 +14,8 @@ module.exports.upload = async function (parsed) {
     method: 'POST'
   })
   window.location.hash = `remote=${slug}`
+  document.getElementById('currentcode').innerText = slug
+  document.getElementById('currentcode').classList.remove('d-hide')
 }
 
 module.exports.fetch = async function (slug) {
