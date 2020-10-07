@@ -7,7 +7,7 @@
     "squeezr-core": "^0.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
+    "@babel/core": "^7.0.0-0",
     "@babel/plugin-transform-runtime": "^7.11.5"
   },
   "scripts": {
