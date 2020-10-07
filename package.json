@@ -2,6 +2,8 @@
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "browser-nativefs": "^0.10.3",
+    "downloadjs": "^1.4.7",
+    "html2canvas": "^1.0.0-rc.7",
     "marked": "^1.2.0",
     "spectre.css": "^0.5.9",
     "squeezr-core": "^0.2.1"

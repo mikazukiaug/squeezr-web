@@ -4,8 +4,10 @@ import 'spectre.css/dist/spectre-icons'
 const parse = require('squeezr-core')
 const format = require('squeezr-core/src/utils/format')
 const marked = require('marked')
+const html2canvas = require('html2canvas')
+const downloadjs = require('downloadjs')
 
-async function openFileDialog () {
+async function readFile () {
   const dirContent = (
     await directoryOpen({
       recursive: true
@@ -41,4 +43,17 @@ async function openFileDialog () {
   }
 }
 
-document.querySelector('#open').addEventListener('click', openFileDialog)
+openfile.addEventListener('click', async () => {
+  openfile.classList.add('loading')
+  await readFile()
+  openfile.classList.remove('loading')
+  download.classList.remove('disabled')
+})
+
+download.addEventListener('click', async () => {
+  download.classList.add('loading')
+  const canvas = await html2canvas(document.body)
+  const data = canvas.toDataURL('image/jpeg')
+  downloadjs(data, 'squeezr.jpg', 'image/jpeg')
+  download.classList.remove('loading')
+})
