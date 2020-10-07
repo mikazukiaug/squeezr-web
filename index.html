@@ -10,17 +10,11 @@
     <header class="navbar p-2 p-sticky bg-secondary" style="top: 0;">
       <section class="navbar-section">
         <span class="navbar-brand mx-2">squeezr <span class="label label-primary">demo</span></span>
-        <div class="input-group" data-html2canvas-ignore>
-          <input type="text" class="form-input" placeholder="提取码" id="code">
-          <button id="codefetch" class="btn btn-primary btn-action input-group-btn">
-            <i class="icon icon-arrow-right"></i>
-          </button>
-        </div>
       </section>
       <section class="navbar-section" data-html2canvas-ignore>
         <code id="currentcode" class="d-hide tooltip tooltip-bottom" style="user-select: all;" data-tooltip="提取码"></code>
         <div class="dropdown dropdown-right ml-2">
-          <a href="#" class="btn btn-action s-sircle dropdown-toggle" tabindex="0">
+          <a class="btn btn-action s-sircle dropdown-toggle" tabindex="0">
             <i class="icon icon-more-vert"></i>
           </a>
           <!-- menu component -->
@@ -52,7 +46,13 @@
             </li>
             <li class="divider"></li>
             <li class="menu-item">
-              <button id="refresh" class="menu-item btn btn-secondary disabled">
+              <div class="input-group">
+                <input type="text" class="form-input" placeholder="提取码" id="code">
+                <button id="codefetch" class="btn btn-primary btn-action input-group-btn">
+                  <i class="icon icon-arrow-right"></i>
+                </button>
+              </div>
+              <button id="refresh" class="menu-item btn btn-secondary my-2 disabled" style="width: 100%">
                 <i class="icon icon-refresh"></i> 换一组
               </button>
             </li>
