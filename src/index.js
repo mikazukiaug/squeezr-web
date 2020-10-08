@@ -21,7 +21,6 @@ var lastParsed
 // 渲染为 Markdown
 function render (parsed, elem = document.getElementById('app')) {
   lastParsed = parsed
-  refresh.classList.remove('disabled')
   deldog.upload(parsed)
   const md = parsed
     .map((problem) => {
@@ -38,6 +37,7 @@ function render (parsed, elem = document.getElementById('app')) {
     })
     .join('\n\n---\n\n')
   elem.innerHTML = marked(md)
+  refresh.classList.remove('disabled')
 }
 
 async function readFile () {
@@ -113,4 +113,4 @@ window.addEventListener('hashchange', () => QRCode.toCanvas(qr, window.location.
 
 refresh.addEventListener('click', () => render(lastParsed))
 
-setTimeout(() => document.querySelector('#app > .loading').classList.remove('loading'), 500)
+setTimeout(() => document.querySelector('#app > .loading').classList.remove('loading'), 1000)
