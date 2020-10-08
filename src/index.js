@@ -112,3 +112,5 @@ QRCode.toCanvas(qr, window.location.toString(), { margin: 0, color: { light: '#f
 window.addEventListener('hashchange', () => QRCode.toCanvas(qr, window.location.toString(), { margin: 0, color: { light: '#ffffff00' } }))
 
 refresh.addEventListener('click', () => render(lastParsed))
+
+setTimeout(() => document.querySelector('#app > .loading').classList.remove('loading'), 500)
