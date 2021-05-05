@@ -1,0 +1,4 @@
+!function(){var e=("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequire427e;function t(){if(!t._executed){t._executed=!0;var i,n,r,a={},l=async(e,t={},i=null)=>{t.fileName=t.fileName||"Untitled",i=i||await window.chooseFileSystemEntries({type:"save-file",accepts:[{description:t.description||"",mimeTypes:[e.type],extensions:t.extensions||[""]}]});const n=await i.createWritable();return await n.write(e),await n.close(),i};
+// @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
+i=a,n="default",r=function(){return l},Object.defineProperty(i,n,{get:r,enumerable:!0}),e.register("3gzV6",(function(){return a}))}}for(var i=["3gzV6"],n=0;n<i.length;n++)parcelRequire427e.registerBundle(i[n],t)}();
+//# sourceMappingURL=file-save.0b50e89f.js.map

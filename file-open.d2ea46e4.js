@@ -1,0 +1,4 @@
+!function(){var e=("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequire427e;function n(){if(!n._executed){n._executed=!0;var t,i,l,o={},r=async(e={})=>new Promise((n=>{const t=document.createElement("input");t.type="file";const i=[...e.mimeTypes?e.mimeTypes:[],e.extensions?e.extensions:[]].join();t.multiple=e.multiple||!1,t.accept=i||"*/*",t.addEventListener("change",(()=>{n(t.multiple?t.files:t.files[0])})),t.click()}));
+// @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
+t=o,i="default",l=function(){return r},Object.defineProperty(t,i,{get:l,enumerable:!0}),e.register("3BRyn",(function(){return o}))}}for(var t=["3BRyn"],i=0;i<t.length;i++)parcelRequire427e.registerBundle(t[i],n)}();
+//# sourceMappingURL=file-open.d2ea46e4.js.map

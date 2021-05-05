@@ -1,0 +1,4 @@
+!function(){var e=("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequire427e;function n(){if(n._executed)return;n._executed=!0;var t={};
+// @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
+const i=async e=>{const n=await e.getFile();return n.handle=e,n};var r,l,o,a=async(e={})=>{const n={};e.mimeTypes?e.mimeTypes.map((t=>{n[t]=e.extensions||[]})):n["*.*"]=e.extensions||[];const t=await window.showOpenFilePicker({types:[{description:e.description||"",accept:n}],multiple:e.multiple||!1}),r=await Promise.all(t.map(i));return e.multiple?r:r[0]};r=t,l="default",o=function(){return a},Object.defineProperty(r,l,{get:o,enumerable:!0}),e.register("6htlW",(function(){return t}))}for(var t=["6htlW"],i=0;i<t.length;i++)parcelRequire427e.registerBundle(t[i],n)}();
+//# sourceMappingURL=file-open.f5f86cf5.js.map
