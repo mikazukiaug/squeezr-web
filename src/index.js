@@ -56,7 +56,7 @@ async function readFile () {
     ))
   } else { // 回落
     const blobs = await Promise.all(dirContent.filter(x =>
-      x.webkitRelativePath.match(/content0001[0-9]{4}\/content\.json$/g)
+      x.webkitRelativePath.match(/content([0-9]{4}){2}\/content\.json$/g)
     ).sort(function (a, b) {
       return (a.webkitRelativePath > b.webkitRelativePath)
         ? 1 : ((b.webkitRelativePath > a.webkitRelativePath)
